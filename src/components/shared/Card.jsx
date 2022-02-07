@@ -8,7 +8,7 @@ function Card({children, invert}) {
 
 
 Card.defaultProps = { 
-    invert: true,
+    invert: false,
 }
 
 Card.propTypes = { 

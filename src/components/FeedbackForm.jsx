@@ -1,20 +1,20 @@
-import React from "react";
-import Card from "./shared/Card";
-import { useState } from "react";
-import Button from "./shared/Button";
-import RatingSelector from "./RatingSelector";
+import React from 'react';
+import Card from './shared/Card';
+import { useState } from 'react';
+import Button from './shared/Button';
+import RatingSelector from './RatingSelector';
 function FeedbackForm({ handleAdd }) {
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
   const [disabled, setDisabled] = useState(true);
   const [rating, setRating] = useState(10);
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('');
 
   const handleTextChange = (newText) => {
     if (text.trim().length === 0) {
       setDisabled(true);
       setMessage(null);
-    } else if ((text !== "") & (text.trim().length <= 10)) {
-      setMessage("The text needs to be more than 10 characters");
+    } else if ((text !== '') & (text.trim().length <= 10)) {
+      setMessage('The text needs to be more than 10 characters');
       setDisabled(true);
     } else {
       setMessage(null);
@@ -31,7 +31,7 @@ function FeedbackForm({ handleAdd }) {
         rating: rating,
       };
       handleAdd(newFeedback);
-      setText("");
+      setText('');
     }
   };
 
@@ -46,19 +46,19 @@ function FeedbackForm({ handleAdd }) {
               setRating(selectedRating);
             }}
           />
-          <div className="input-group">
+          <div className='input-group'>
             <input
               onChange={handleTextChange}
-              type="text"
-              placeholder="Write a review"
+              type='text'
+              placeholder='Write a review'
               value={text}
             />
-            <Button type="submit" isDisabled={disabled}>
+            <Button type='submit' isDisabled={disabled}>
               Send
             </Button>
           </div>
           {message !== null ? (
-            <div className="message">{message}</div>
+            <div className='message'>{message}</div>
           ) : (
             <div></div>
           )}
